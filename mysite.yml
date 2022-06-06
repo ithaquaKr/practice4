@@ -16,3 +16,18 @@
   roles:
     - deploy
   tags: deploy-prod
+
+- name: install monitoring stack
+  hosts: monitor
+  become: yes
+  roles:
+    - prometheus
+    - grafana
+  tags: monitoring
+  
+- name: install node-exporter
+  hosts: all
+  become: yes
+  roles:
+    - node-exporter
+  tags: monitoring
