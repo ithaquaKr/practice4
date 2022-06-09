@@ -17,17 +17,9 @@
     - deploy
   tags: deploy-prod
 
-- name: install monitoring stack
+- name: create prometheus 
   hosts: monitor
-  become: yes
+  become: true
   roles:
     - prometheus
-    - grafana
-  tags: monitoring
-  
-- name: install node-exporter
-  hosts: all
-  become: yes
-  roles:
-    - node-exporter
   tags: monitoring
