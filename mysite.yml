@@ -17,9 +17,20 @@
     - deploy
   tags: deploy-prod
 
-- name: create prometheus 
+- name: deploy monitor to production server
+  hosts: production
+  become: true
+  roles:
+    - cadvisor
+    - node-exporter
+  tags: deploy-monitor
+
+- name: create monitor server
   hosts: monitor
   become: true
   roles:
     - prometheus
+    - grafana
+    - alertmanager
   tags: monitoring
+

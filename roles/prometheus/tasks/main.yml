@@ -13,6 +13,7 @@
   docker_container:
     name: "{{container_name}}"
     image: "{{ docker_images }}"
-    command: "{{ container_command}}"
     volumes: "{{ container_volumes}}"
-    # depends_on: "{{ container_depends}}"
+    command: "{{ container_command}}"
+    ports:
+      - 9090:9090

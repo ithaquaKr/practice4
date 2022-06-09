@@ -23,20 +23,11 @@ groups:
 
 - name: containers
   rules:
-  - alert: PHP_FPM_Down
-    expr: absent(container_memory_usage_bytes{name="project-report-php-fpm"})
+  - alert: AMILAB Front-end down
+    expr: absent(container_memory_usage_bytes{name="ptit-learn-app_client"})
     for: 30s
     labels:
       severity: critical
     annotations:
-      summary: "PHP-FPM Container is Down"
-      description: "PHP-FPM container is down for more than 30 seconds."
-  
-  - alert: MySQL_Down
-    expr: absent(container_memory_usage_bytes{name="project-report-mysql"})
-    for: 30s
-    labels:
-      severity: critical
-    annotations:
-      summary: "MySQL Container is Down"
-      description: "MySQL container is down for more than 30 seconds."
+      summary: "AMILAB FE Container is Down"
+      description: "AMILAB FE container is down for more than 30 seconds."

@@ -5,10 +5,6 @@ container_command:
   - '--config.file=/etc/prometheus/prometheus.yml'
   - '--storage.tsdb.path=/prometheus'
 container_volumes:
-  - ./prometheus:/etc/prometheus
+  - ~/prometheus:/etc/prometheus
   - prometheus-db:/prometheus
-  - ./prometheus/alert.rules:/alertmanager/alert.rules
-# container_depends:
-#   - cadvisor
-#   - node-exporter
-#   - alertmanager
+  - ~/prometheus/alert.rules:/alertmanager/alert.rules
