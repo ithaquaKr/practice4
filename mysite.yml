@@ -32,5 +32,7 @@
     - prometheus
     - grafana
     - alertmanager
+    - cadvisor
+    - node-exporter
   tags: monitoring
 
