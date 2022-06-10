@@ -1,5 +1,5 @@
 groups:
-- name: targets
+- name: monitor-server
   rules:
   - alert: monitor_service_down
     expr: up == 0
@@ -20,7 +20,7 @@ groups:
       description: "A Prometheus target has disappeared. An exporter might be crashed.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 
-- name: host
+- name: product-server
   rules:
   - alert: HostOutOfMemory
     expr: node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100 < 10
@@ -49,7 +49,7 @@ groups:
       summary: Host high CPU load (instance {{ $labels.instance }})
       description: "CPU load is > 80%\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
-- name: containers
+- name: product-containers
   rules:
   - alert: ContainerCpuUsage
     expr: (sum(rate(container_cpu_usage_seconds_total{name!=""}[3m])) BY (instance, name) * 100) > 80
@@ -77,11 +77,3 @@ groups:
     annotations:
       summary: Container Volume usage (instance {{ $labels.instance }})
       description: "Container Volume usage is above 80%\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
-
-
-
-
-
-
-
-
