@@ -26,14 +26,14 @@ scrape_configs:
     scrape_timeout: 2s
     honor_labels: true
     static_configs:
-    - targets: ['localhost:9100']
+    - targets: ['172.104.170.41:9100']
 
   - job_name: monitor-server-container
     scrape_interval: 5s
     scrape_timeout: 2s
     honor_labels: true
     static_configs:
-    - targets: ['localhost:8080']
+    - targets: ['172.104.170.41:8080']
 
   - job_name: prod-server-node
     scrape_interval: 5s
